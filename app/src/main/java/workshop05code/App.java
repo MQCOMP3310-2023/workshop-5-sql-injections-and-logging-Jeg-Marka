@@ -75,13 +75,17 @@ public class App {
             while (!guess.equals("q")) {
                 System.out.println("You've guessed '" + guess+"'.");
                 if (guess.length()==4){
-                    if (wordleDatabaseConnection.isValidWord(guess)) { 
-                        System.out.println("Success! It is in the the list.\n");
-                    }else{
-                        System.out.println("Sorry. This word is NOT in the the list.\n");
+                    if (guess.contains("a-z")) {
+                        if (wordleDatabaseConnection.isValidWord(guess)) { 
+                            System.out.println("Success! It is in the the list.\n");
+                        }else{
+                            System.out.println("Sorry. This word is NOT in the the list.\n");
+                        }
+                    } else{
+                        System.out.println("you can only guess lower case words!");
                     }
                 } else {
-                    System.out.println("you can only guess 4 letter words");
+                    System.out.println("you can only guess 4 letter words!");
                 }
                 System.out.print("Enter a 4 letter word for a guess or q to quit: " );
                 guess = scanner.nextLine();
